@@ -1,5 +1,5 @@
 ansible-release
-===========
+===============
 [![Build Status](https://travis-ci.org/futurice/ansible-release.svg?branch=master)](https://travis-ci.org/futurice/ansible-release)
 
 Provide project structure configuration.
