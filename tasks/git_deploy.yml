@@ -1,0 +1,14 @@
+---
+- name: Pull repository sources using RSA keys from deploying users own SSH config
+  git: repo={{git_repo}} dest={{release_path}} version=master accept_hostkey=yes
+  when: git_repo != '.'
+
+- name: Using local repository as source for deployment
+  local_action: command git archive -o _deploy.tgz --format=tar {{git_branch}}
+  when: git_repo == '.'
+
+- unarchive: src=_deploy.tgz dest={{release_path}}
+  when: git_repo == '.'
+
+- local_action: command rm _deploy.tgz
+  when: git_repo == '.'
