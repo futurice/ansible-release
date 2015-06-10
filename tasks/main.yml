@@ -1,5 +1,1 @@
 ---
-- name: Do nothing
-  shell: /bin/true
-  register: result
-  changed_when: result.rc != 0
