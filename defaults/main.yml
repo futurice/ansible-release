@@ -6,10 +6,12 @@ release_path: "{{release_root}}releases/{{release_timestamp}}/"
 release_current: "{{release_root}}current"
 release_venv: "{{release_root}}venv/"
 
+release_git_tmp_file: "/tmp/{{release_name}}_{{release_timestamp}}deploy.tgz"
+
 git_repo: false
 git_branch: 'master'
 
 ssh_deploy_key: deploy_key
 
-release_user: "{{user}}"
+release_user: "{{ansible_ssh_user}}"
 release_group: "{{release_user}}"
