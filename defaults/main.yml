@@ -12,4 +12,4 @@ git_branch: 'master'
 ssh_deploy_key: deploy_key
 
 release_user: "{{user}}"
-release_group: "{{group}}"
+release_group: "{{release_user}}"
