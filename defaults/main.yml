@@ -10,3 +10,6 @@ git_repo: false
 git_branch: 'master'
 
 ssh_deploy_key: deploy_key
+
+release_user: "{{user}}"
+release_group: "{{group}}"

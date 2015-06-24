@@ -1,11 +1,11 @@
 ---
-- file: state=directory path={{ release_root }} owner={{user}} group={{group}} recurse=yes
+- file: state=directory path={{release_root}} owner={{release_user}} group={{release_group}} recurse=yes
 
 - name: Pull repository sources using RSA keys from deploying users own SSH config
   git: repo={{git_repo}} dest={{release_path}} version=master accept_hostkey=yes
   when: git_repo != '.'
 
-- file: state=directory path={{ release_path }} owner={{user}} group={{group}}
+- file: state=directory path={{release_path}} owner={{release_user}} group={{release_group}}
   when: git_repo == '.'
 
 - name: Using local repository as source for deployment

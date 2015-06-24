@@ -6,8 +6,8 @@
 - local_action: command ssh-keygen -t rsa -f deploy_key -q -N ""
   become: false
 
-- user: name="{{deploy_user}}" groups="sudo"
+- user: name="{{release_user}}" groups="sudo"
 
-- lineinfile: "dest=/etc/sudoers regexp='^{{deploy_user}}' line='{{deploy_user}} ALL=(ALL) NOPASSWD: ALL' state=present"
+- lineinfile: "dest=/etc/sudoers regexp='^{{release_user}}' line='{{release_user}} ALL=(ALL) NOPASSWD: ALL' state=present"
 
-- authorized_key: user="{{deploy_user}}" key="{{lookup('file', 'deploy_key.pub')}}" state=present exclusive=yes
+- authorized_key: user="{{release_user}}" key="{{lookup('file', 'deploy_key.pub')}}" state=present exclusive=yes
