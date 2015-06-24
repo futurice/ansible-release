@@ -8,3 +8,5 @@ release_venv: "{{release_root}}venv/"
 
 git_repo: false
 git_branch: 'master'
+
+ssh_deploy_key: deploy_key

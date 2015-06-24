@@ -1,0 +1,13 @@
+---
+- local_action: command bash -c 'for filename in deploy_key*; do mv "$filename" "old_$filename"; done;'
+  ignore_errors: true
+  become: false
+
+- local_action: command ssh-keygen -t rsa -f deploy_key -q -N ""
+  become: false
+
+- user: name="{{deploy_user}}" groups="sudo"
+
+- lineinfile: "dest=/etc/sudoers regexp='^{{deploy_user}}' line='{{deploy_user}} ALL=(ALL) NOPASSWD: ALL' state=present"
+
+- authorized_key: user="{{deploy_user}}" key="{{lookup('file', 'deploy_key.pub')}}" state=present exclusive=yes

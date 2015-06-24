@@ -1,4 +1,6 @@
 ---
+- file: state=directory path={{ release_root }} owner={{user}} group={{group}} recurse=yes
+
 - name: Pull repository sources using RSA keys from deploying users own SSH config
   git: repo={{git_repo}} dest={{release_path}} version=master accept_hostkey=yes
   when: git_repo != '.'
