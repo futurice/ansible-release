@@ -1,0 +1,6 @@
+---
+- hosts: target
+  vars:
+    - deploy_user: deploy
+  tasks:
+    - include: tasks/ssh_rotate.yml
